@@ -1,9 +1,6 @@
 package com.barbearia.aplicacao.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,4 +21,8 @@ public class Servico {
     private BigDecimal preco;
     private Integer duracaoMin;
     private boolean ativo;
+
+    @ManyToOne
+    @JoinColumn(name = "barbearia_id")
+    private Barbearia barbearia;
 }

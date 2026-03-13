@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -18,6 +19,9 @@ public class Avaliacao {
 
     @OneToOne
     private Agendamento agendamento;
+    @ManyToOne
+    private Barbearia barbearia;
+    private LocalDateTime data;
 
     private Integer nota;
     private String comentario;
