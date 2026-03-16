@@ -167,4 +167,20 @@ public class AgendamentoService {
 
         return disponiveis;
     }
+
+    public List<AgendamentoResponse> listarAgendamentosDoCliente(UUID clienteId, LocalDate data) {
+        return agendamentoRepository.findAgendamentosDoClienteNaData(clienteId, data)
+                .stream()
+                .map(a -> new AgendamentoResponse(
+                        a.getId(),
+                        a.getCliente().getNome(),
+                        a.getBarbeiro().getNome(),
+                        a.getServico().getNome(),
+                        a.getServico().getPreco(),
+                        a.getDataHoraInicio(),
+                        a.getDataHoraFim(),
+                        a.getStatusAgendamento()
+                ))
+                .toList();
+    }
 }

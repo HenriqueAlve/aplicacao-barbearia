@@ -1,5 +1,6 @@
 package com.barbearia.aplicacao.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -24,12 +25,16 @@ public class Barbearia {
     private String nome;
     private String endereco;
     @OneToMany(mappedBy = "barbearia", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Avaliacao> avaliacao;
     @OneToMany(mappedBy = "barbearia", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Servico> servicos;
-    @OneToOne
-    private Barbeiro barbeiro;
+    @OneToMany(mappedBy = "barbearia")
+    @JsonManagedReference
+    private List<Barbeiro> barbeiros;
     @OneToMany(mappedBy = "barbearia", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<HorarioTrabalho> horarioTrabalho;
     @ElementCollection
     private List<String> imagensCorte;

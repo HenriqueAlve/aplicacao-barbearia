@@ -42,5 +42,8 @@ AND a.statusAgendamento != com.barbearia.aplicacao.model.enums.StatusAgendamento
             @Param("data") LocalDate data
     );
 
+    @Query("SELECT a FROM Agendamento a WHERE a.cliente.id = :clienteId AND CAST(a.dataHoraInicio AS date) = :data")
+    List<Agendamento> findAgendamentosDoClienteNaData(UUID clienteId, LocalDate data);
+
 
 }

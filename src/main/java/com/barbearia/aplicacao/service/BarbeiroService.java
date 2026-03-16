@@ -19,7 +19,7 @@ public class BarbeiroService {
         barbeiro.setNome(dto.nome());
         barbeiro.setEmail(dto.email());
         barbeiro.setTelefone(dto.telefone());
-        barbeiro.setAtivo(dto.ativo());
+        //barbeiro.setAtivo(dto.ativo());
 
         return barbeiroRepository.save(barbeiro);
     }

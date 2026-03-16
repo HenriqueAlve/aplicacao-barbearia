@@ -2,20 +2,19 @@ package com.barbearia.aplicacao.model.entity;
 
 import com.barbearia.aplicacao.model.enums.StatusAgendamento;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Agendamento {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne
@@ -29,7 +28,7 @@ public class Agendamento {
 
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     private StatusAgendamento statusAgendamento;
 
 }

@@ -1,20 +1,20 @@
 package com.barbearia.aplicacao.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Servico {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String nome;
     private String descricao;
@@ -24,5 +24,6 @@ public class Servico {
 
     @ManyToOne
     @JoinColumn(name = "barbearia_id")
+    @JsonBackReference
     private Barbearia barbearia;
 }

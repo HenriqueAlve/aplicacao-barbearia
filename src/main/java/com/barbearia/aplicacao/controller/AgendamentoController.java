@@ -40,4 +40,11 @@ public class AgendamentoController {
                 agendamentoService.listarHorariosDisponiveis(barbeiroId, servicoId, data)
         );
     }
+
+    @GetMapping("/cliente/{clienteId}")
+    public ResponseEntity<List<AgendamentoResponse>> listarAgendamentosDoCliente(
+            @PathVariable UUID clienteId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate data) {
+        return ResponseEntity.ok(agendamentoService.listarAgendamentosDoCliente(clienteId, data));
+    }
 }

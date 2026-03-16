@@ -6,7 +6,7 @@ public record CreateClienteDTO(
 
         String nome,
         String email,
-        String telefone,
-        LocalDateTime dataNasc
+        String senha,
+        String telefone
 ) {
 }

@@ -20,7 +20,7 @@ public class ClienteService {
         cliente.setNome(dto.nome());
         cliente.setEmail(dto.email());
         cliente.setTelefone(dto.telefone());
-        cliente.setDataNasc(dto.dataNasc());
+        //cliente.setDataNasc(dto.dataNasc());
 
         return clienteRepository.save(cliente);
 
